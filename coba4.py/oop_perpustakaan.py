@@ -120,7 +120,6 @@ perpus.delete()
 print("\nDaftar Buku Setelah Penghapusan:")
 perpus.display_books()
 
-
 perpus.member()
 perpus.member()
 perpus.delete_member()
