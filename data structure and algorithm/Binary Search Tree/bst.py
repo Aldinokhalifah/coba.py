@@ -59,6 +59,22 @@ class BST:
             
             # 3. Kunjungi anak kanan
             self._inorder_rekursif(node_saat_ini.right)
+            
+    def hitung_total(self):
+        return self._hitung_total_rekursif(self.root)
+    
+    def _hitung_total_rekursif(self, node_saat_ini):
+        if node_saat_ini is None:
+            return 0
+        return node_saat_ini.data + self._hitung_total_rekursif(node_saat_ini.left) + self._hitung_total_rekursif(node_saat_ini.right)
+    
+    def hitung_total_node(self):
+        return self._hitung_total_node(self.root)
+
+    def _hitung_total_node(self, node_saat_ini):
+        if node_saat_ini is None:
+            return 0
+        return 1 + self._hitung_total_node(node_saat_ini.left) + self._hitung_total_node(node_saat_ini.right)
 
 pohon = BST()
 pohon.insert(50)
@@ -70,3 +86,5 @@ pohon.insert(40)
 print(pohon.search(40))  # Harusnya: True
 print(pohon.search(90))  # Harusnya: False
 pohon.cetak_inorder()
+print(pohon.hitung_total())
+print(pohon.hitung_total_node())
