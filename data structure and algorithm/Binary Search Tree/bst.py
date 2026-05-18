@@ -76,6 +76,35 @@ class BST:
             return 0
         return 1 + self._hitung_total_node(node_saat_ini.left) + self._hitung_total_node(node_saat_ini.right)
 
+    def cari_minimum(self) :
+        # Jika pohon kosong, langsung kembalikan None
+        if self.root is None:
+            return None
+        
+        # Mulai jalan dari puncak (root)
+        node_saat_ini = self.root
+        
+        # Selama node_saat_ini MASIH memiliki anak kiri, kita geser terus ke kiri
+        while node_saat_ini.left is not None:
+            # LENGKAPI DI SINI:
+            node_saat_ini = node_saat_ini.left
+            # Bagaimana cara menggeser 'node_saat_ini' ke anak kirinya?
+            pass
+            
+        # Setelah loop selesai (artinya sudah mentok paling kiri),
+        # kembalikan data dari node tersebut
+        return node_saat_ini.data
+
+    def cari_maksimum(self):
+        if self.root is None:
+            return None
+        
+        node_saat_ini = self.root
+        while node_saat_ini.right is not None:
+            node_saat_ini = node_saat_ini.right # Geser ke KANAN terus
+            
+        return node_saat_ini.data
+
 pohon = BST()
 pohon.insert(50)
 pohon.insert(30)
@@ -88,3 +117,5 @@ print(pohon.search(90))  # Harusnya: False
 pohon.cetak_inorder()
 print(pohon.hitung_total())
 print(pohon.hitung_total_node())
+print(f"Min: {pohon.cari_minimum()}")
+print(f"Max: {pohon.cari_maksimum()}")
